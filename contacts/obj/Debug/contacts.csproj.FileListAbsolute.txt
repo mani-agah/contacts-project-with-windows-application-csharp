@@ -1,0 +1,34 @@
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\contacts.exe.config
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\contacts.exe
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\contacts.pdb
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\EntityFramework.dll
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\EntityFramework.xml
+C:\Users\msaga\Desktop\contacts\contacts\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.csproj.AssemblyReference.cache
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.csproj.SuggestedBindingRedirects.cache
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.Form1.resources
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.Properties.Resources.resources
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.csproj.GenerateResource.cache
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.csproj.CoreCompileInputs.cache
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.csproj.CopyComplete
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.exe
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.pdb
+C:\Users\msaga\Desktop\contacts\contacts\obj\Debug\contacts.AddOrEdit.resources
+E:\C# project\contacts\contacts\bin\Debug\contacts.exe.config
+E:\C# project\contacts\contacts\bin\Debug\contacts.exe
+E:\C# project\contacts\contacts\bin\Debug\contacts.pdb
+E:\C# project\contacts\contacts\bin\Debug\EntityFramework.dll
+E:\C# project\contacts\contacts\bin\Debug\EntityFramework.SqlServer.dll
+E:\C# project\contacts\contacts\bin\Debug\EntityFramework.xml
+E:\C# project\contacts\contacts\bin\Debug\EntityFramework.SqlServer.xml
+E:\C# project\contacts\contacts\obj\Debug\contacts.csproj.AssemblyReference.cache
+E:\C# project\contacts\contacts\obj\Debug\contacts.csproj.SuggestedBindingRedirects.cache
+E:\C# project\contacts\contacts\obj\Debug\contacts.AddOrEdit.resources
+E:\C# project\contacts\contacts\obj\Debug\contacts.Form1.resources
+E:\C# project\contacts\contacts\obj\Debug\contacts.Properties.Resources.resources
+E:\C# project\contacts\contacts\obj\Debug\contacts.csproj.GenerateResource.cache
+E:\C# project\contacts\contacts\obj\Debug\contacts.csproj.CoreCompileInputs.cache
+E:\C# project\contacts\contacts\obj\Debug\contacts.csproj.CopyComplete
+E:\C# project\contacts\contacts\obj\Debug\contacts.exe
+E:\C# project\contacts\contacts\obj\Debug\contacts.pdb

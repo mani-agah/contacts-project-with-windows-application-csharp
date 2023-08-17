@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ContactModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CityTbl">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State_ID_FK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="StateTbl" Relationship="Self.FK_CityTbl_StateTbl1" FromRole="CityTbl" ToRole="StateTbl" />
+    <NavigationProperty Name="MyContactTbls" Relationship="Self.FK_MyContactTbl_CityTbl1" FromRole="CityTbl" ToRole="MyContactTbl" />
+  </EntityType>
+  <EntityType Name="CountryTbl">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="StateTbls" Relationship="Self.FK_StateTbl_CountryTbl" FromRole="CountryTbl" ToRole="StateTbl" />
+  </EntityType>
+  <EntityType Name="JobTbl">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MyContactTbls" Relationship="Self.FK_MyContactTbl_JobTbl1" FromRole="JobTbl" ToRole="MyContactTbl" />
+  </EntityType>
+  <EntityType Name="MyContactTbl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Job_ID_FK" Type="Int32" Nullable="false" />
+    <Property Name="City_ID_FK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CityTbl" Relationship="Self.FK_MyContactTbl_CityTbl1" FromRole="MyContactTbl" ToRole="CityTbl" />
+    <NavigationProperty Name="JobTbl" Relationship="Self.FK_MyContactTbl_JobTbl1" FromRole="MyContactTbl" ToRole="JobTbl" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StateTbl">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country_ID_FK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CityTbls" Relationship="Self.FK_CityTbl_StateTbl1" FromRole="StateTbl" ToRole="CityTbl" />
+    <NavigationProperty Name="CountryTbl" Relationship="Self.FK_StateTbl_CountryTbl" FromRole="StateTbl" ToRole="CountryTbl" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_CityTbl_StateTbl1">
+    <End Role="StateTbl" Type="Self.StateTbl" Multiplicity="1" />
+    <End Role="CityTbl" Type="Self.CityTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateTbl">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="CityTbl">
+        <PropertyRef Name="State_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyContactTbl_CityTbl1">
+    <End Role="CityTbl" Type="Self.CityTbl" Multiplicity="1" />
+    <End Role="MyContactTbl" Type="Self.MyContactTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CityTbl">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="MyContactTbl">
+        <PropertyRef Name="City_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateTbl_CountryTbl">
+    <End Role="CountryTbl" Type="Self.CountryTbl" Multiplicity="1" />
+    <End Role="StateTbl" Type="Self.StateTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryTbl">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="StateTbl">
+        <PropertyRef Name="Country_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyContactTbl_JobTbl1">
+    <End Role="JobTbl" Type="Self.JobTbl" Multiplicity="1" />
+    <End Role="MyContactTbl" Type="Self.MyContactTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobTbl">
+        <PropertyRef Name="JobID" />
+      </Principal>
+      <Dependent Role="MyContactTbl">
+        <PropertyRef Name="Job_ID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ContactEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CityTbls" EntityType="Self.CityTbl" />
+    <EntitySet Name="CountryTbls" EntityType="Self.CountryTbl" />
+    <EntitySet Name="JobTbls" EntityType="Self.JobTbl" />
+    <EntitySet Name="MyContactTbls" EntityType="Self.MyContactTbl" />
+    <EntitySet Name="StateTbls" EntityType="Self.StateTbl" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_CityTbl_StateTbl1" Association="Self.FK_CityTbl_StateTbl1">
+      <End Role="StateTbl" EntitySet="StateTbls" />
+      <End Role="CityTbl" EntitySet="CityTbls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyContactTbl_CityTbl1" Association="Self.FK_MyContactTbl_CityTbl1">
+      <End Role="CityTbl" EntitySet="CityTbls" />
+      <End Role="MyContactTbl" EntitySet="MyContactTbls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateTbl_CountryTbl" Association="Self.FK_StateTbl_CountryTbl">
+      <End Role="CountryTbl" EntitySet="CountryTbls" />
+      <End Role="StateTbl" EntitySet="StateTbls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyContactTbl_JobTbl1" Association="Self.FK_MyContactTbl_JobTbl1">
+      <End Role="JobTbl" EntitySet="JobTbls" />
+      <End Role="MyContactTbl" EntitySet="MyContactTbls" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
